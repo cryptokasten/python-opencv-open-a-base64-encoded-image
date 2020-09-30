@@ -27,23 +27,23 @@ import base64
 ** Input
 
 #+BEGIN_SRC python
-data = "R0lGODlhEAAQAMQAAORHHOVSKudfOulrSOp3WOyDZu6QdvCchPGolfO0o/XBs/fNwfjZ0frl3/zy7////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAkAABAALAAAAAAQABAAAAVVICSOZGlCQAosJ6mu7fiyZeKqNKToQGDsM8hBADgUXoGAiqhSvp5QAnQKGIgUhwFUYLCVDFCrKUE1lBavAViFIDlTImbKC5Gm2hB0SlBCBMQiB0UjIQA7"
+data = "iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg=="
 #+END_SRC
 
 ** Read Base64
 
 #+BEGIN_SRC python
 def readb64(data):
-    nparr = np.fromstring(base64.b64decode(data), np.uint8)
+    nparr = np.frombuffer(base64.b64decode(data), np.uint8)
     return cv2.imdecode(nparr, cv2.IMREAD_COLOR)
 #+END_SRC
 
 ** Read image
 
 #+BEGIN_SRC python
-cvimg = readb64(data)
+img = readb64(data)
 #+END_SRC
 
 ** References
 
-1. https://stackoverflow.com/a/42538142
+1. https://stackoverflow.com/questions/33754935/read-a-base-64-encoded-image-from-memory-using-opencv-python-library
